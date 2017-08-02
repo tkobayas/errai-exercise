@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
-
+import com.example.client.shared.Detected;
 import com.example.client.shared.HelloMessage;
 import com.example.client.shared.Response;
 
@@ -66,7 +66,7 @@ public class App {
       messageEvent.fire(event);
     }
 
-    public void response(@Observes Response event) {
+    public void response(@Observes @Detected Response event) {
         System.out.println("Got a Response!");
         responseLabel.setText("HelloMessage from Server: " + event.getMessage().toUpperCase());
     }

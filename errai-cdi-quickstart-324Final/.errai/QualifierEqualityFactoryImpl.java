@@ -10,14 +10,14 @@ import org.jboss.errai.ui.client.widget.Table;
 public class QualifierEqualityFactoryImpl implements QualifierEqualityFactory {
   private HashMap<String, AnnotationComparator> comparatorMap = new HashMap<String, AnnotationComparator>();
   public QualifierEqualityFactoryImpl() {
-    comparatorMap.put("org.jboss.errai.ioc.client.api.ReplyTo", new AnnotationComparator<ReplyTo>() {
-      @Override public boolean isEqual(ReplyTo a1, ReplyTo a2) {
+    comparatorMap.put("javax.inject.Named", new AnnotationComparator<Named>() {
+      @Override public boolean isEqual(Named a1, Named a2) {
         if (!a1.value().equals(a2.value())) {
           return false;
         }
         return true;
       }
-      public int hashCodeOf(ReplyTo a1) {
+      public int hashCodeOf(Named a1) {
         int hash = a1.annotationType().hashCode();
         hash = (31 * hash) + QualifierUtil.hashValueFor(a1.value());
         return hash;
@@ -36,14 +36,14 @@ public class QualifierEqualityFactoryImpl implements QualifierEqualityFactory {
         return hash;
       }
     });
-    comparatorMap.put("javax.inject.Named", new AnnotationComparator<Named>() {
-      @Override public boolean isEqual(Named a1, Named a2) {
+    comparatorMap.put("org.jboss.errai.ioc.client.api.ReplyTo", new AnnotationComparator<ReplyTo>() {
+      @Override public boolean isEqual(ReplyTo a1, ReplyTo a2) {
         if (!a1.value().equals(a2.value())) {
           return false;
         }
         return true;
       }
-      public int hashCodeOf(Named a1) {
+      public int hashCodeOf(ReplyTo a1) {
         int hash = a1.annotationType().hashCode();
         hash = (31 * hash) + QualifierUtil.hashValueFor(a1.value());
         return hash;

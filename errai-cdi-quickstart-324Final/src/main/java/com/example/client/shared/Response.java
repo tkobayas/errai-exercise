@@ -16,6 +16,7 @@ import org.jboss.errai.enterprise.client.cdi.api.Conversational;
  */
 @Portable
 @Conversational
+@Detected
 public class Response {
     private int id;
     private String message;

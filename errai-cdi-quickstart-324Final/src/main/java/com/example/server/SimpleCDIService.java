@@ -1,5 +1,6 @@
 package com.example.server;
 
+import com.example.client.shared.Detected;
 import com.example.client.shared.HelloMessage;
 import com.example.client.shared.Response;
 
@@ -13,7 +14,7 @@ import javax.inject.Inject;
  */
 @ApplicationScoped
 public class SimpleCDIService {
-  @Inject
+  @Inject @Detected
   private Event<Response> responseEvent;
 
   public void handleMessage(@Observes HelloMessage event) {
